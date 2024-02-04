@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'Login',
+  name: 'LoginVue',
   data:()=>{
     return{
         login:"",
@@ -35,7 +35,26 @@ export default {
   },
   methods:{
     authenticate(){
-        console.log(this.login, this.password)
+        this.axios.get("https://65b614ceda3a3c16ab002d5a.mockapi.io/api/prom/UserLogin")
+        .then((response) => {
+
+        let users = response.data;
+
+        let found = false;
+
+        for (let index in users) {
+
+            if (this.login == users[index].login && this.password == users[index].password) {
+                this.$router.push('/my_page/' + users[index].id);
+                found = true;
+                break;
+
+            }
+        }
+        if (!found) {
+                window.alert("Incorrect")
+        }
+    })
     }
   }
   

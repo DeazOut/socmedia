@@ -2,9 +2,26 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/login">Login</router-link>
+    
   </nav>
+  <!-- <v-content class="px-12 py-3">
+    <v-container fluid> 
+      <router-view v-on:login="UpdateUser" />
+    </v-container>
+  </v-content> -->
   <router-view/>
 </template>
+
+<script>
+  // export default {
+  //   methods:{
+  //     UpdateUser(){
+  //       window.alert('НЕВЕРНЫЙ ПАРОЛЬ');
+  //     }
+  //   }
+  // }
+
+</script>
 
 <style>
 #app {
